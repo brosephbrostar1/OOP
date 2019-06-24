@@ -108,3 +108,6 @@ class UchihaGod extends ninjaGod {
 
 let sasuke = new UchihaGod("sasuke", "v high","rubber duck", "robes? nah, they")
 
+display(sasuke.name());
+display(sasuke.village);
+display(sasuke.combo());
