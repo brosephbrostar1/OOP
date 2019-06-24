@@ -12,15 +12,15 @@ function name(name){
 // create 3 functions that describe the powers of a ninja
 // that you'd like to create
 
-function ninja1(stealth){
+function stealth(stealth){
     return stealth + " means r/woosh";
 }
 
-function ninja2(weapon){
+function weapon(weapon){
     return weapon + " is shuriken";
 }
 
-function ninja3(clothes){
+function clothes(clothes){
     return clothes + " are all black baby";
 }
 
@@ -39,15 +39,15 @@ const ninja = {
         return "hi, my name is " + name + ".";
     },
 
-    ninja1(stealth){
+    stealth(stealth){
         return stealth + " means r/woosh";
     },
     
-    ninja2(weapon){
+    weapon(weapon){
         return weapon + " is shuriken";
     },
     
-    ninja3(clothes){
+    clothes(clothes){
         return clothes + " are all black baby";
     },
 }
@@ -59,6 +59,7 @@ const ninja = {
 
 // create a class for instantiating ninjas
 // OOP abstraction: hiding complexity
+
 class ninjaGod{
     constructor(name, stealth, weapon, clothes){
         this.nameInsideNinjaGod = name;
@@ -71,22 +72,39 @@ class ninjaGod{
         return "hi, my name is " + this.nameInsideNinjaGod
     }
 
-    ninja1(){
+    stealth(){
         return this.stealth + " means r/woosh";
     }
 
-    ninja2(){
+    weapon(){
         return this.weapon + " is shuriken";
     }
 
-    ninja3(){
+    clothes(){
         return this.clothes + " are all black baby";
     }
 }
-  
-let sasuke = new ninjaGod("sasuke", "v high","rubber duck", "robes? nah, they")
+// OOP inheritance objects inheriting properties and methods from the classes
+// they were instantiated from
+// let sasuke = new ninjaGod("sasuke", "v high","rubber duck", "robes? nah, they")
 
-display(sasuke.name());
-display(sasuke.ninja1());
-display(sasuke.ninja2());
-display(sasuke.ninja3());
+// display(sasuke.name());
+// display(sasuke.ninja1());
+// display(sasuke.ninja2());
+// display(sasuke.ninja3());
+
+// OOP Polymorphism: overrides shared behaviors from the parent/what its inheriting from
+
+class UchihaGod extends ninjaGod {
+    constructor(name, stealth, weapon, clothes){
+        super(name, stealth, weapon, clothes)
+        this.village = "Hidden Leaf";
+    }
+
+    combo(){
+        return "activate: " + super.weapon() + " combo with " + super.stealth()
+    }
+};
+
+let sasuke = new UchihaGod("sasuke", "v high","rubber duck", "robes? nah, they")
+
